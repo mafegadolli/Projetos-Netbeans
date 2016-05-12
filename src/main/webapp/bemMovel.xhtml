@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"  
+      xmlns:f="http://java.sun.com/jsf/core"  
+      xmlns:p="http://primefaces.org/ui">  
+    <h:head>
+        <title>Bem Movel</title>
+    </h:head>
+
+    <h:body>
+
+        <f:metadata id="metaDados">
+            <f:viewAction action="#{bemMovelBean.listaTodos()}" />
+        </f:metadata>
+        <h:form id="frm">  
+            <p:growl id="messages"/>
+            <p:fieldset legend="Dados Pesquisa" style="margin-bottom:20px">
+
+            </p:fieldset>
+            <p:fieldset legend="Resultado da Pesquisa" style="margin-bottom:20px">
+                <h:dataTable cellspacing="0"  cellpadding="2" border="1" id="tabela"
+                             value="#{bemMovelBean.bensMoveis}" var="ListaBem">
+                    
+                    <p:column headerText="Chapa" id="colChapa">
+                        <h:outputText value="#{ListaBem.bemMovelId.chapa}"/>
+                    </p:column> 
+                    <p:column headerText="Chapa" id="colNaturezaBem">
+                        <h:outputText value="#{ListaBem.bemMovelId.naturezaBem}"/>
+                    </p:column>              
+                    <p:column headerText="Chapa" id="colSistema">
+                        <h:outputText value="#{ListaBem.bemMovelId.sistema}"/>
+                    </p:column>               
+                    <p:column headerText="Código Tipo do Bem">    
+                        <h:outputText value="#{ListaBem.anoProcessoIncorporacao}"/>
+                    </p:column>
+                    <p:column headerText="Descrição">
+                        <h:outputText value="#{ListaBem.dataIncorporacao}"/>
+                    </p:column>
+                
+                </h:dataTable>
+            </p:fieldset>   
+        </h:form>
+    </h:body>
+</html>
+

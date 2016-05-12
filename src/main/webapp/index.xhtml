@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"  
+      xmlns:f="http://java.sun.com/jsf/core"  
+      xmlns:p="http://primefaces.org/ui">  
+    <h:head>
+        <title>Tipo Incorporacao</title>
+
+    </h:head>
+    <h:body>
+        <f:metadata id="metaListaTodos">
+            <f:viewAction action="#{tipoIncorporacaoBean.listaTodos()}" />
+        </f:metadata>
+        <h:form id="frmIndex">
+            <p:messages showDetail="false" showSummary="true" autoUpdate="true"/>
+            <h:panelGroup style="text-align: center">
+                <h:panelGrid columns="2" id="panelDados">
+                    <h:outputLabel value="Inserir o codigo do tipo de bem:"></h:outputLabel>
+                    <h:inputText value="Entrada automática do código"/>      
+                    <h:outputLabel value="Inserir a descricao do tipo de bem:"></h:outputLabel>
+                    <h:inputText value="#{tipoIncorporacaoBean.descricaoIncorporacao}"/>   
+                </h:panelGrid>
+                <h:panelGrid columns="1">
+                    <p:commandButton icon="ui-icon-disk" 
+                                     value="Registrar"
+                                     actionListener="#{tipoIncorporacaoBean.inserirObjeto()}"/>
+                </h:panelGrid>
+            </h:panelGroup>
+        
+        <br />
+        <h:link outcome="welcomePrimefaces" value="Página de boas-vindas para Primefaces" />
+        <br/>
+        <h:link outcome="bemMovel" value="Página listagem de bens moveis" />
+        <h1> Consulta a Lista de Tipos de Incorporação </h1>
+        <h:dataTable cellspacing="0"  cellpadding="2" border="1" id="tabela"
+                     value="#{tipoIncorporacaoBean.tiposIncorporacoes}" var="ListaTipoIncorporacao">
+            <p:column headerText="Código Tipo do Bem">
+                <h:outputText value="#{ListaTipoIncorporacao.codigoTipo}"/>
+            </p:column>
+            <p:column headerText="Descrição">
+                <h:outputText value="#{ListaTipoIncorporacao.descricaoIncorporacao}"/>
+            </p:column>
+        </h:dataTable>
+        </h:form>
+    </h:body>
+</html>
+
